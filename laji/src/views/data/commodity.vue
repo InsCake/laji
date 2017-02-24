@@ -14,8 +14,9 @@
         var Commodity = AV.Object.extend('Commodity')
         var commodity = new Commodity()
 
-        commodity.set('name', '曼陀罗')
-        commodity.set('price', 6357)
+        commodity.set('name', '柔毛')
+        commodity.set('price', 200)
+        commodity.set('making_cost', 0)
 
         commodity.save().then(function (res) {
           console.log(res)
@@ -28,9 +29,9 @@
         var mapMaterial = {}
 
         var query = new AV.Query('Commodity')
-        query.get('58ae88308fd9c50063c2200f').then(function (commodity) {
+        query.get('58afd1532f301e0068f76b8f').then(function (commodity) {
           mapCommodity = commodity
-          query.get('58ac59ee8fd9c50067fcf9f8').then(function (material) {
+          query.get('58afd1732f301e006cfb052c').then(function (material) {
             mapMaterial = material
 
             var CommodityMaterialMap = AV.Object.extend('CommodityMaterialMap')
@@ -38,7 +39,7 @@
 
             commodityMaterialMap.set('commodity', mapCommodity)
             commodityMaterialMap.set('material', mapMaterial)
-            commodityMaterialMap.set('quantity', 6)
+            commodityMaterialMap.set('quantity', 200)
 
             commodityMaterialMap.save().then(function (res) {
               console.log(res)
