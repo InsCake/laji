@@ -2,7 +2,9 @@
   <section class="home page">
 
     <div class="card-commodity" v-for="commodity in sorted_commodities">
-      <h2 class="commodity-name">{{ commodity.name }}</h2>
+      <h2 class="commodity-name">{{ commodity.name }}
+        <small> - {{ commodity.source }}</small>
+      </h2>
       <div class="commodity-info">
         <div>售价: <em>{{ commodity.price }}</em></div>
         <div>利润: <em>{{ (commodity.price - commodity.material_cost - (commodity.price * 0.1) -
@@ -19,6 +21,7 @@
 <style>
   .card-commodity { padding: 20px 15px; box-shadow: 0 1px 3px -3px rgba(0, 0, 0, .8); }
   .card-commodity .commodity-name { font-weight: 100; font-size: 30px; color: #111; line-height: 1.1; }
+  .card-commodity .commodity-name > small { font-size: 10px; }
   .card-commodity .commodity-info { display: flex; color: #999; font-size: 10px; margin-top: 5px; }
   .card-commodity .commodity-info > div { flex: 1; }
   .card-commodity .commodity-info > div:not(:first-child) { text-align: right; }
